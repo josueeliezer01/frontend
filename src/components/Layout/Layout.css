@@ -1,0 +1,12 @@
+/* src/components/Layout.css */
+.layout-back-button {
+  position: fixed;
+  top: 110px; /* ajuste se sua TopNav + NavBar tiverem outra altura */
+  left: 35px;
+  z-index: 1000;
+}
+
+/* opcional: deslocar o main para não ficar atrás do botão */
+.layout-container {
+  padding-top: 1rem; /* ou mais, conforme necessário */
+}

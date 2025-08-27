@@ -1,0 +1,34 @@
+/* src/pages/BrandPage/BrandPage.css */
+.brand-container {
+  padding: 90px 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+.category-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.25rem;
+  text-align: center;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.7rem;
+}
+
+/* Mensagens de estado */
+.category-container p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--label-color);
+  margin-top: 2rem;
+}
+
+/* Link de categoria não encontrada */
+.category-container p strong {
+  color: var(--primary-hover);
+}

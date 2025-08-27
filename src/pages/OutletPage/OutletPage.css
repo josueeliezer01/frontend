@@ -1,0 +1,17 @@
+.outlet-container {
+  padding: 90px 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.outlet-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}

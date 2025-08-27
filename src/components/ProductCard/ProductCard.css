@@ -1,0 +1,95 @@
+/* frontend/src/components/ProductCard/ProductCard.css */
+.product-card {
+  position: relative; /* para posicionar o toast */
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  padding: 0.5rem;
+}
+
+.product-image-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-name {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: var(--label-color);
+  margin-bottom: 0.5rem;
+}
+
+.product-tags {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-tag {
+  background: var(--bg-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.product-stock.in-stock {
+  color: green;
+}
+
+.product-stock.out-stock {
+  color: red;
+}
+
+.btn-add {
+  padding: 0.5rem;
+  background: var(--primary-color);
+  color: var(--card-bg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background: var(--primary-hover);
+}
+
+.toast {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--card-bg);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}

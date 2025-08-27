@@ -1,0 +1,22 @@
+/* frontend/src/components/TopNav/TopNav.css */
+.top-nav {
+  background-color: var(--primary-color);
+  width: 100%;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  line-height: 15px;
+  margin: 0 auto;
+}
+
+.top-nav .message {
+  color: var(--card-bg);
+  font-size: 14px;
+  font-weight: 300;
+}

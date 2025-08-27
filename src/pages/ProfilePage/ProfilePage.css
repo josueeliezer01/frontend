@@ -1,0 +1,125 @@
+/* src/pages/ProfilePage/ProfilePage.css */
+
+.profile-page-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--bg-color);
+}
+
+.profile-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.profile-container h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+.profile-container p {
+  margin: 0.75rem 0;
+  font-size: 1rem;
+}
+
+.profile-container p strong {
+  color: var(--label-color);
+}
+
+.profile-container div {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-container label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--label-color);
+}
+
+.profile-container input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.profile-container input:focus {
+  outline: none;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 3px rgba(0, 124, 247, 0.2);
+}
+
+/* Botões de ação (Editar / Logout) */
+.profile-container .button-group {
+  display: flex;
+  flex-direction: row; /* lado a lado */
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.profile-container .button-group button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Botão Salvar / Editar padrão */
+.profile-container .button-group button:not(.logout-btn) {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.profile-container .button-group button:not(.logout-btn):hover {
+  background-color: var(--primary-hover);
+}
+
+/* Botão Logout vermelho */
+.logout-btn {
+  background-color: var(--error-color, #e74c3c);
+  color: #fff;
+}
+
+.logout-btn:hover {
+  opacity: 0.9;
+}
+
+/* Botões de admin */
+.admin-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.admin-buttons button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem; /* igual aos botões Editar/Logout */
+  font-weight: 600; /* idem */
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.admin-buttons button:hover {
+  background-color: var(--primary-hover);
+}

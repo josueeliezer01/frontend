@@ -1,0 +1,76 @@
+.categories-section {
+  padding: 1.5rem 1rem;
+}
+
+.categories-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* container de slides */
+.categories-container {
+  display: flex;
+  overflow: hidden; /* sem scrollbar visível */
+  cursor: grab;
+  /* mantém padding para margem interna */
+  padding-bottom: 0.5rem;
+  touch-action: pan-y;
+}
+.categories-container,
+.categories-container * {
+  user-select: none; /* nada é selecionável */
+  -webkit-user-drag: none; /* impede drag de imagens no Safari/Chrome */
+}
+
+/* cursor ao arrastar */
+.categories-container.dragging {
+  cursor: grabbing;
+}
+
+.category-item {
+  flex: 0 0 auto; /* não cresce/não encolhe */
+  width: 200px; /* tamanho base desktop */
+  margin-right: 1rem; /* gap entre itens */
+}
+
+.category-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.category-label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+  .category-item {
+    width: 160px;
+  }
+  .category-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-item {
+    width: 120px;
+  }
+  .category-label {
+    font-size: 0.8rem;
+  }
+}

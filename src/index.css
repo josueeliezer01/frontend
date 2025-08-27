@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Barlow, sans-serif;
+}
+body {
+  background-color: var(--bg-color);
+}
+:root {
+  --primary-color: #007cf7;
+  --primary-hover: #005bb5;
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --label-color: #555555;
+  --input-border: #cccccc;
+  --input-focus: #007cf7;
+}
