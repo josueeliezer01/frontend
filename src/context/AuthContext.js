@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,7 +16,7 @@ export function AuthProvider({ children }) {
       return;
     }
 
-    fetch("http://localhost:3333/users/me", {
+    fetch(`${API_URL}/users/me`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((r) => {

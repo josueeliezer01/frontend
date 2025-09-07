@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import "./ProductPage.css";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export default function ProductPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
@@ -12,7 +14,7 @@ export default function ProductPage() {
   const [qty, setQty] = useState(1);
 
   useEffect(() => {
-    fetch(`http://localhost:3333/products/${productId}`)
+    fetch(`${API_URL}/products/${productId}`)
       .then((res) => {
         if (!res.ok) throw new Error("Produto não encontrado");
         return res.json();

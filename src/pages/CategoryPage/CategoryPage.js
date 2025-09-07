@@ -17,6 +17,8 @@ const categoryKeyMap = {
   "pet-nutrition": "petNutrition",
 };
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export default function CategoryPage() {
   const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
@@ -30,7 +32,7 @@ export default function CategoryPage() {
 
     setLoading(true);
     // aqui passamos o slug (categoryId), que bate com a coluna `category` do banco
-    fetch(`http://localhost:3333/products/category/${propKey}`)
+    fetch(`${API_URL}/products/category/${propKey}`)
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao carregar produtos");
         return res.json();

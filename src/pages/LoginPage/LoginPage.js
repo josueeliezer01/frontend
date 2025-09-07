@@ -5,6 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./LoginPage.css";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export default function LoginPage() {
   const { register, handleSubmit, formState } = useForm();
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ export default function LoginPage() {
 
   const onSubmit = async (data) => {
     // 1. Login e obtenção do token
-    const res = await fetch("http://localhost:3333/users/login", {
+    const res = await fetch(`${API_URL}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -28,7 +30,7 @@ export default function LoginPage() {
 
     // 2. Buscar perfil com o token
     try {
-      const profileRes = await fetch("http://localhost:3333/users/me", {
+      const profileRes = await fetch(`${API_URL}/users/me`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!profileRes.ok) throw new Error();

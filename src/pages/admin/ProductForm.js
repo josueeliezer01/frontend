@@ -16,6 +16,8 @@ const CATEGORY_OPTIONS = [
   "petNutrition",
 ];
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export function ProductForm() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -36,7 +38,7 @@ export function ProductForm() {
   // Load existing product when editing
   useEffect(() => {
     if (!isEditing) return;
-    fetch(`http://localhost:3333/products/${id}`, {
+    fetch(`${API_URL}/products/${id}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((r) => r.json())
@@ -77,14 +79,11 @@ export function ProductForm() {
     if (file) {
       const data = new FormData();
       data.append("image", file);
-      const uploadRes = await fetch(
-        "http://localhost:3333/upload/product-image",
-        {
-          method: "POST",
-          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-          body: data,
-        }
-      );
+      const uploadRes = await fetch(`${API_URL}/upload/product-image`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        body: data,
+      });
       const uploadBody = await uploadRes.json();
       if (!uploadRes.ok) {
         alert(uploadBody.error || "Erro no upload da imagem");
@@ -104,9 +103,7 @@ export function ProductForm() {
       on_sale: form.onSale,
     };
 
-    const url = isEditing
-      ? `http://localhost:3333/products/${id}`
-      : "http://localhost:3333/products";
+    const url = isEditing ? `${API_URL}/products/${id}` : `${API_URL}/products`;
     const method = isEditing ? "PUT" : "POST";
 
     const res = await fetch(url, {

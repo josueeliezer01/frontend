@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./ProfilePage.css";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export default function ProfilePage() {
   const [user, setLocalUser] = useState(null);
   const [editing, setEditing] = useState(false);
@@ -26,7 +28,7 @@ export default function ProfilePage() {
       return;
     }
 
-    fetch("http://localhost:3333/users/me", {
+    fetch(`${API_URL}/users/me`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(async (res) => {
@@ -69,7 +71,7 @@ export default function ProfilePage() {
     };
     if (form.password) payload.password = form.password;
 
-    const res = await fetch("http://localhost:3333/users/me", {
+    const res = await fetch(`${API_URL}/users/me`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

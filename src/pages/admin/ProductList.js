@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductList.css";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export function ProductList() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3333/products", {
+    fetch(`${API_URL}/products`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((r) => r.json())
@@ -17,7 +19,7 @@ export function ProductList() {
 
   const handleDelete = (id) => {
     if (!window.confirm("Confirma exclusão?")) return;
-    fetch(`http://localhost:3333/products/${id}`, {
+    fetch(`${API_URL}/products/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     }).then((res) => {

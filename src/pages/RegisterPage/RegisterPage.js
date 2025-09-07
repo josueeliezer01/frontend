@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import "./RegisterPage.css";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export default function RegisterPage() {
   const {
     register,
@@ -12,7 +14,7 @@ export default function RegisterPage() {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const res = await fetch("http://localhost:3333/users/register", {
+    const res = await fetch(`${API_URL}/users/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./UserList.css";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export function UserList() {
   const [users, setUsers] = useState([]);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3333/users", {
+    fetch(`${API_URL}/users`, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((r) => {
@@ -27,7 +29,7 @@ export function UserList() {
 
   const toggleRole = (u) => {
     const newRole = u.role === "admin" ? "user" : "admin";
-    fetch(`http://localhost:3333/users/${u.id}/role`, {
+    fetch(`${API_URL}/users/${u.id}/role`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

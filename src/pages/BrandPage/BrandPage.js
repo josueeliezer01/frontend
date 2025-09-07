@@ -14,6 +14,8 @@ const brandKeyMap = {
   activewave: "ActiveWave",
 };
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export default function BrandPage() {
   const { brandId } = useParams();
   const [products, setProducts] = useState([]);
@@ -25,7 +27,7 @@ export default function BrandPage() {
   useEffect(() => {
     if (!brandKey) return;
     setLoading(true);
-    fetch(`http://localhost:3333/products/brand/${brandKey}`)
+    fetch(`${API_URL}/products/brand/${brandKey}`)
       .then((res) => {
         if (!res.ok) throw new Error("Erro ao carregar produtos");
         return res.json();

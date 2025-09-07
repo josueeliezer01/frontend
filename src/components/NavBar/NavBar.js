@@ -8,6 +8,8 @@ import CartIcon from "../CartIcon/CartIcon";
 import UserIcon from "../UserIcon/UserICon";
 import { AuthContext } from "../../context/AuthContext";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3333";
+
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -34,7 +36,7 @@ export default function NavBar() {
     const controller = new AbortController();
     const timeout = setTimeout(() => {
       fetch(
-        `http://localhost:3333/products?search=${encodeURIComponent(
+        `${API_URL}/products?search=${encodeURIComponent(
           searchTerm
         )}`,
         { signal: controller.signal }
@@ -158,8 +160,6 @@ export default function NavBar() {
               </li>
             </ul>
           </li>
-
-        
 
           <li>
             <Link to="/about">SOBRE NÓS</Link>
