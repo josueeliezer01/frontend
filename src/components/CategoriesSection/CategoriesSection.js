@@ -42,7 +42,7 @@ const categories = [
   {
     id: "activewear",
     name: "Activewear",
-    src: "/categories/activewear.png",
+    src: "/categories/Activewear.png",
     href: "/categories/activewear",
   },
   {
